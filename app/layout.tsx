@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export const metadata: Metadata = {
   title: "Shehryar Zubair | Full Stack Software Engineer",
   description:
-    "Full stack engineer with 5+ years of experience in React, Next.js, NestJS, PostgreSQL and WordPress. Frontend, backend, real-time systems and integrations.",
+    "Shehryar Zubair, Full Stack Software Engineer specializing in React, Next.js, TypeScript, Node.js, NestJS and PostgreSQL. Explore engineering projects, frontend integrations and WordPress development.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

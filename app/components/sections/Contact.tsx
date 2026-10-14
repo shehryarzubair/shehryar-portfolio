@@ -1,5 +1,5 @@
 import { CopyEmail } from "../ui/CopyEmail";
-import { EMAIL, GITHUB, LINKEDIN } from "../../data/profile";
+import { EMAIL, GITHUB, LINKEDIN, NAME, LOCATION } from "../../data/profile";
 
 export function Contact() {
   return (
@@ -8,9 +8,14 @@ export function Contact() {
         <div className="cta">
           <h2 className="title">Have a project in mind?</h2>
           <p className="lede" style={{ marginBottom: 28 }}>
-            I'm open to full stack and backend opportunities. Get in touch to discuss your project
-            or team.
+            Get in touch to discuss your project, your team or a software engineering opportunity.
           </p>
+          <p className="contact-identity">
+            {NAME} · {LOCATION}
+          </p>
+          <a className="contact-email" href={`mailto:${EMAIL}`}>
+            {EMAIL}
+          </a>
           <div className="row">
             <a className="btn primary" href={`mailto:${EMAIL}`}>
               Email me

@@ -1,45 +1,47 @@
-import { TechBadge } from "../ui/TechIcon";
-import type { CSSProperties } from "react";
-import { projects } from "../../data/projects";
-
+import { projects, clientProjects, wordpressProjects } from "../../data/projects";
+import { ProjectCard } from "../ui/ProjectCard";
 export function Projects() {
   return (
-    <section id="projects">
+    <section id="projects" aria-labelledby="projects-title">
       <div className="wrap">
-        <h2 className="title">Selected projects</h2>
+        <h2 className="title" id="projects-title">
+          Featured Engineering Projects
+        </h2>
         <p className="lede">
-          A selection of platforms I've helped build, from AI assessments to ticketing and
-          investment workflows.
+          Full stack platforms, backend systems and frontend integrations I've worked on.
         </p>
-        {projects.map((p) => (
-          <article className="proj" key={p.title}>
-            <div className="mock" style={{ "--h": p.h } as CSSProperties} aria-hidden="true">
-              <div className="win">
-                <b />
-                <i />
-                <i />
-                <i />
-                <i />
-              </div>
+        <div className="featured-projects">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.title} project={project} featured index={index} />
+          ))}
+        </div>
+        <div className="project-group" id="client-projects">
+          <h3 className="group-title">Additional Web Development Projects</h3>
+          <p className="group-description">
+            Frontend development and website work across events, commerce, services and education.
+          </p>
+          <details className="project-disclosure">
+            <summary>
+              View {clientProjects.length} client projects <span aria-hidden="true">+</span>
+            </summary>
+            <div className="client-project-grid">
+              {clientProjects.map((project) => (
+                <ProjectCard key={project.title} project={project} />
+              ))}
             </div>
-            <div>
-              <h3>{p.title}</h3>
-              <p className="tag">{p.tag}</p>
-              <ul className="pts">
-                {p.points.map((t) => (
-                  <li key={t}>{t}</li>
-                ))}
-              </ul>
-              <ul className="chips">
-                {p.stack.map((s) => (
-                  <li key={s}>
-                    <TechBadge name={s} />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </article>
-        ))}
+          </details>
+        </div>
+        <div className="project-group" id="wordpress-projects">
+          <h3 className="group-title">WordPress Projects</h3>
+          <p className="group-description">
+            Corporate and marketing websites, separate from the engineering applications above.
+          </p>
+          <div className="wordpress-project-grid">
+            {wordpressProjects.map((project) => (
+              <ProjectCard key={project.title + project.tag} project={project} wordpress />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
